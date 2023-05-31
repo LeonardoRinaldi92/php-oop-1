@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/database/db.php';
 
-// // var_dump($arrayFilm[0]->genres)
 ?>
 
 <!DOCTYPE html>
@@ -14,21 +13,35 @@ require_once __DIR__ . '/database/db.php';
 </head>
 <body>
     <div>
-        <?php foreach($arrayFilm as $element) ?>
-            <h1>
-                <?php echo $element->title ?>
-            </h1>
-            <span>
-                <?php echo 'anno: '.$element->year ?>
-            </span>
-            <span>
-                <?php echo $element->time.' minutes'?>
-            </span>
+        <?php foreach($arrayFilm as $element){?>
+            <?php foreach($element->title as $elementINelement){?>
+                <h1 style="margin-top: 40px">
+                    <?php echo $elementINelement->title ?>
+                </h1>
+                <h3>
+                    <?php echo'Titolo originale: '. $elementINelement->OriginalTitle ?>
+                </h3>
+                <p>
+                </p>
+                <span>
+                    <?php echo'"<i>'. $elementINelement->desc.'</i>"' ?>
+                </span>
+            <?php } ?>
+
             <p>
-                <?php foreach($element->genres as $element) 
-                    echo $element->genres
-                ?>
+                <?php echo 'anno:'. $element->year ?>
             </p>
+            <p>
+                <?php echo 'duarata '.$element->time.' min.'?>
+            </p>
+            <p>
+                    Genere: 
+                <?php foreach($element->genres as $element){?>
+                    <?php echo $element ?>
+                <?php } ?>
+                
+            </p>
+        <?php } ?>
     </div>
     
 </body>
