@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/database/db.php';
 
-var_dump($arrayFilm[0]->genres)
+// // var_dump($arrayFilm[0]->genres)
 ?>
 
 <!DOCTYPE html>
